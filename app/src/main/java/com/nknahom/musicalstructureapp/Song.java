@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 public class Song implements Parcelable {
 
+    // Song Object have three variables for Song title, Artist Name and Song image resource
     private String song_title;
     private String song_artist;
     private int mImageResourceId;
