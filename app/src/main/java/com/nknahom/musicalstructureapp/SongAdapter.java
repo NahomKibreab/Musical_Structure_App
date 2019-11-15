@@ -9,11 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class SongAdapter extends ArrayAdapter<Song> {
 
@@ -35,23 +32,22 @@ public class SongAdapter extends ArrayAdapter<Song> {
         }
 
         // Get the {@link AndroidFlavor} object located at this position in the list
-        Song currentAndroidFlavor = getItem(position);
+        Song song = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView nameTextView = listItemView.findViewById(R.id.artist_name);
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
-        nameTextView.setText(currentAndroidFlavor.getSong_artist());
+        nameTextView.setText(song.getSong_artist());
 
         // Find the ImageView in the list_item.xml layout with the ID list_item_icon
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.song_thumbnail);
         // Get the image resource ID from the current AndroidFlavor object and
         // set the image to iconView
-        iconView.setImageResource(currentAndroidFlavor.getmImageResourceId());
+        iconView.setImageResource(song.getmImageResourceId());
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView
         return listItemView;
     }
-
 }

@@ -1,6 +1,9 @@
 package com.nknahom.musicalstructureapp;
 
-public class Song {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Song implements Parcelable {
 
     private String song_title;
     private String song_artist;
@@ -12,6 +15,24 @@ public class Song {
         this.mImageResourceId = mImageResourceId;
     }
 
+    protected Song(Parcel in) {
+        song_title = in.readString();
+        song_artist = in.readString();
+        mImageResourceId = in.readInt();
+    }
+
+    public static final Creator<Song> CREATOR = new Creator<Song>() {
+        @Override
+        public Song createFromParcel(Parcel in) {
+            return new Song(in);
+        }
+
+        @Override
+        public Song[] newArray(int size) {
+            return new Song[size];
+        }
+    };
+
     public String getSong_title() {
         return song_title;
     }
@@ -22,5 +43,17 @@ public class Song {
 
     public int getmImageResourceId() {
         return mImageResourceId;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(song_title);
+        dest.writeString(song_artist);
+        dest.writeInt(mImageResourceId);
     }
 }
