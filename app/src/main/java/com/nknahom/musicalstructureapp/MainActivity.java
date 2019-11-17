@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, Detail_Song.class);
+                intent.putExtra("CURRENT_SONG", position);
                 intent.putParcelableArrayListExtra("songs", songs);
                 startActivity(intent);
             }

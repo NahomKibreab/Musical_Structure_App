@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Detail_Song"
-            android:label="@string/now_playing">
+            android:label="@string/now_playing"
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
